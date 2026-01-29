@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Visitor Log</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <table>
+        <tr>
+            <!-- Form Column -->
+            <td>
+                <form autocomplete="off" onsubmit="onFormSubmit(event)">
+                    <div>
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name">
+                    </div>
+                    <div>
+                        <label for="city">City</label>
+                        <input type="text" name="city" id="city">
+                    </div>
+                    <div>
+                        <label for="contactNum">Contact Number</label>
+                        <input type="text" name="contactNum" id="contactNum">
+                    </div>
+                    <div>
+                        <label for="purpose">Purpose</label>
+                        <input type="text" name="purpose" id="purpose">
+                    </div>
+
+                    <div class="form_action--button">
+                        <input type="submit" value="Submit">
+                        <input type="reset" value="Reset">
+                        <input type="button" value="Clear Table" onclick="clearTable()">
+                    </div>
+                </form>
+            </td>
+
+            <!-- Table Column -->
+            <td>
+                <table class="list" id="storeList">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>City</th>
+                            <th>Contact Number</th>
+                            <th>Purpose</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Rows will be added here dynamically -->
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <script src="./script.js"></script>
+</body>
+</html>
