@@ -1,6 +1,5 @@
 var selectedRow = null;
 
-// On form submit
 function onFormSubmit(e) {
     e.preventDefault();
     var formData = readFormData();
@@ -12,7 +11,6 @@ function onFormSubmit(e) {
     resetForm();
 }
 
-// Retrieve form data
 function readFormData() {
     return {
         name: document.getElementById("name").value,
@@ -22,7 +20,6 @@ function readFormData() {
     };
 }
 
-// Insert new row
 function insertNewRecord(data) {
     var table = document.getElementById("storeList").getElementsByTagName('tbody')[0];
     var newRow = table.insertRow();
@@ -32,7 +29,6 @@ function insertNewRecord(data) {
     newRow.insertCell(2).innerHTML = data.contactNum;
     newRow.insertCell(3).innerHTML = data.purpose;
 
-    // Actions cell
     var actionsCell = newRow.insertCell(4);
     actionsCell.innerHTML = `
         <button onclick="onEdit(this)">Edit</button> 
@@ -40,7 +36,6 @@ function insertNewRecord(data) {
     `;
 }
 
-// Edit row
 function onEdit(td) {
     selectedRow = td.parentElement.parentElement;
     document.getElementById("name").value = selectedRow.cells[0].innerHTML;
@@ -49,7 +44,6 @@ function onEdit(td) {
     document.getElementById("purpose").value = selectedRow.cells[3].innerHTML;
 }
 
-// Update row
 function updateRecord(formData) {
     selectedRow.cells[0].innerHTML = formData.name;
     selectedRow.cells[1].innerHTML = formData.city;
@@ -57,7 +51,6 @@ function updateRecord(formData) {
     selectedRow.cells[3].innerHTML = formData.purpose;
 }
 
-// Delete row
 function onDelete(td) {
     if (confirm('Do you want to delete this record?')) {
         var row = td.parentElement.parentElement;
@@ -66,7 +59,6 @@ function onDelete(td) {
     }
 }
 
-// Reset form
 function resetForm() {
     document.getElementById("name").value = '';
     document.getElementById("city").value = '';
@@ -75,7 +67,6 @@ function resetForm() {
     selectedRow = null;
 }
 
-// Clear entire table
 function clearTable() {
     if (confirm("Do you want to clear the entire table?")) {
         var tableBody = document.getElementById("storeList").getElementsByTagName("tbody")[0];
@@ -83,3 +74,4 @@ function clearTable() {
         resetForm();
     }
 }
+
